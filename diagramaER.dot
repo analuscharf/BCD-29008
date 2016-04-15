@@ -18,13 +18,6 @@ Lenciona[shape=diamond]
 Estuda[shape=diamond]
 Pré_requisito[shape=diamond]
 
-//Atributos 
-//o[shape=point]
-Matrícula[shape=plaintext]
-Nome[shape=plaintext]
-Carga_Horária[shape=plaintext]
-Semestre_Corrente[shape=plaintext]
-Turno[shape=plaintext]
 
 //Ligações
 Aluno--Cursou--Disciplina
@@ -35,10 +28,7 @@ Disciplina--Calendário--Horários
 Disciplina--Grade--Curso
 Disciplina--Interrese--Processo_de_matricula
 Disciplina--Pré_requisito--Disciplina
-Disciplina--Carga_Horária
-Aluno--Matrícula
-Processo_de_matricula--Semestre_Corrente
-Horários--Turno
+
 
 
 }
