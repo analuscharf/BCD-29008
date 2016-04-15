@@ -8,7 +8,7 @@ Horários[shape=record]
 Curso[shape=record]
 Professor[shape=record]
 
-//Relacionamento
+//Relacionamentos
 Cursou[shape=diamond]
 Faz[shape=diamond]
 Interrese[shape=diamond]
@@ -26,7 +26,7 @@ Carga_Horária[shape=plaintext]
 Semestre_Corrente[shape=plaintext]
 Turno[shape=plaintext]
 
-//Ligação
+//Ligações
 Aluno--Cursou--Disciplina
 Aluno--Estuda--Curso
 Aluno--Faz--Processo_de_matricula
