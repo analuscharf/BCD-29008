@@ -1,4 +1,2 @@
 # BCD-29008-
-Aluna do Instituto Federal de Sanata Catarina.
-Curso: Engenharia de Telecomunicações.
-Contém os arquivos referente  a disciplina BCD.
+Arquivos referente a construção do diagrama do projeto de Banco de Dados 29008.
