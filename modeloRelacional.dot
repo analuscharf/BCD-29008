@@ -1,0 +1,54 @@
+digraph modeloRelacional {
+  //dot -Tpng modeloRelacional.dot -o modeloRelacional.png
+  
+ -  layout = neato
+ +  ///layout = neato
+    overlap = false
+  
+    // Tabelas
+    Aluno [shape=record,label="<0>Aluno|<1>*CPF|<2>Nome"]
+    Curso [shape=record,label="<0>Curso|<1>*Codigo|<2>nome"]
+ -  Disciplina [shape=record,label="<0>Disciplina|<1>*Codigo|<2>Fase|<3>Carga_horaria|<4>Carga_horaria_minima|<5>**Grade"]
+ -  Processo_de_matricula [shape=record,label="<0>Processo_de_matricula|<1>**Aluno|<2>*Nº_Matricula|<3>**Curso"]
+ -  Pre_requisito [shape=record,label="<0>Pre_requisito|<1>*Pre_requisito|<2>*Disciplina"]
+ +  Disciplina [shape=record,label="<0>Disciplina|<1>*Codigo|<2>Fase|<3>Carga_horaria|<4>Carga_horaria_minima|<5>**Grade|<6>*Leciona"]
+ +  Processo_de_matricula [shape=record,label="<0>Processo_de_matricula|<1>***Aluno|<2>***Disciplina|<3>Concluido|<4>Semestre"]
+ +  Pre_requisito [shape=record,label="<0>Pre_requisito|<1>***Pre_requisito|<2>***Disciplina"]
+    Professor [shape=record,label="<0>Professor|<1>*SIAPE|<2>Nome"]
+ -  Leciona [shape=record,label="<0>Leciona|<1>*Disciplina|<2>*Professor"]
+ -  Cursou [shape=record,label="<0>Cursou|<1>*Aluno|<2>*Disciplina"]
+ -  Horarios [shape=record,label="<0>Horarios|<1>**Aula|<2>*Hora|<3>*Semana|<4>*Dia"]
+ -  Calendario [shape=record,label="<0>Calendario|<1>*Horarios|<2>**Disciplina"]
+ +  Horarios [shape=record,label="<0>Horarios|<1>***Nº_Disciplina|<2>*Nº_Aula|<3>*SemanaAB|<4>*NºDia|<5>*Turno|<6>Semestre"]
+ +  Matricula [shape=record,label="<0>Matricula|<1>***Aluno|<2>***Curso|<3>Matricula"]
+ +
+  
+    # Integridade
+    Processo_de_matricula:1 -> Aluno:1
+ -  Processo_de_matricula:3 -> Curso:1
+ +  Processo_de_matricula:2 -> Disciplina:1
+    Disciplina:5 -> Curso:1
+ +  Disciplina:6 -> Professor:1
+    Pre_requisito:1 -> Disciplina:1
+    Pre_requisito:2 -> Disciplina:1
+ -  Leciona:1 -> Disciplina:1
+ -  Leciona:2 -> Professor:1
+ -  Cursou:1 -> Aluno:1
+ -  Cursou:2 -> Disciplina:1
+ -  Calendario:2 -> Disciplina:1
+ -  Calendario:1 -> Horarios:2
+ -  Calendario:1 -> Horarios:3
+ -  Calendario:1 -> Horarios:4
+    Horarios:1   -> Disciplina:1
+ -
+ -
+ -
+ -
+ -
+ -
+ -
+ -
+ +  Matricula:2   -> Curso:1
+ +  Matricula:1   -> Aluno:1
+  
+  }
