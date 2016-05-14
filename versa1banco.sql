@@ -4,7 +4,7 @@ use db1220018384;
 desc aluno;
 insert  into aluno(cpf,nome)
 values
-      ('1','Ana'),
+          ('1','Ana'),
 	  ('2','Leonan'),
 	  ('3','karoline'),
 	  ('4','Beatriz'),
