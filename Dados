@@ -1,0 +1,1089 @@
+use db1220018384;
+
+#-------------------------------------Inserindo de Disciplinas-----------------------------------
+
+# 1ª fase
+ 
+insert into disciplina(codigo, nomeCompleto,fase, CH, CHminima, cursoCodigo, professorSiape)
+values ('DES', 'Desenho Técnico', '1', '36', NULL,
+    (select id from curso where nome = 'Engenharia de Telecomunicações'),
+    (select id from professor where nome = 'Afonso Pena')
+);
+ 
+insert into disciplina(codigo, nomeCompleto,fase, CH, CHminima, cursoCodigo, professorSiape)
+values ('CAL1','Cálculo I', '1', '72', NULL, 
+    (select id from curso where nome = 'Engenharia de Telecomunicações'), 
+    (select id from professor where nome = 'Café Filho')
+);
+ 
+insert into disciplina(codigo,nomeCompleto,fase, CH, CHminima, cursoCodigo, professorSiape)
+values ('ELI1','Eletricidade e Instrumentação', '1', '72', NULL, 
+        (select id from curso where nome = 'Engenharia de Telecomunicações'), 
+        (select id from professor where nome = 'Ranieri Mazzilli')
+);
+ 
+insert into disciplina(codigo,nomeCompleto,fase, CH, CHminima, cursoCodigo, professorSiape)
+values ('FSC1','Física I', '1', '72', NULL, (select id from curso where nome = 'Engenharia de Telecomunicações'), 
+        (select id from professor where nome = 'Tancredo Neves')
+);
+ 
+insert into disciplina(codigo,nomeCompleto,fase, CH, CHminima, cursoCodigo, professorSiape)
+values ('GAL','Geometria Analítica', '1', '54', NULL, 
+        (select id from curso where nome = 'Engenharia de Telecomunicações'), 
+        (select id from professor where nome = 'Washington Luís')
+);
+ 
+insert into disciplina(codigo,nomeCompleto,fase, CH, CHminima, cursoCodigo, professorSiape)
+values ('LOG','Lógica', '1', '36', NULL, (select id from curso where nome = 'Engenharia de Telecomunicações'), 
+        (select id from professor where nome = 'Fernando Collor')
+);
+ 
+insert into disciplina(codigo,nomeCompleto,fase, CH, CHminima, cursoCodigo, professorSiape)
+values ('PJI1','Projeto Integrador I', '1', '54', NULL,
+        (select id from curso where nome = 'Engenharia de Telecomunicações'), 
+        (select id from professor where nome = 'Getúlio Vargas')
+);
+
+# 2ª fase
+
+insert into disciplina(codigo,nomeCompleto,fase, CH, CHminima, cursoCodigo, professorSiape)
+values ('QMC1','Química Geral', '2', '54', NULL,
+        (select id from curso where nome = 'Engenharia de Telecomunicações'),
+        (select id from professor where nome =  'Emílio Garrastazu Médici')
+);
+
+
+insert into disciplina(codigo,nomeCompleto,fase, CH, CHminima, cursoCodigo, professorSiape)
+values ('CAL2','Cáculo II', '2', '72', NULL,
+        (select id from curso where nome = 'Engenharia de Telecomunicações'), 
+		(select id from professor where nome = 'Márcio de Sousa Melo')
+);
+
+
+insert into disciplina(codigo,nomeCompleto,fase, CH, CHminima, cursoCodigo, professorSiape)
+values ('CIE1',' Circuitos Elétricos I','2', '72', NULL,
+        (select id from curso where nome = 'Engenharia de Telecomunicações'), 
+		(select id from professor where nome = 'Prudente de Morais')
+);
+
+insert into disciplina(codigo,nomeCompleto,fase, CH, CHminima, cursoCodigo, professorSiape)
+values ('FSC2','Física II', '2', '72', NULL,
+        (select id from curso where nome = 'Engenharia de Telecomunicações'),
+		(select id from professor where nome = 'Tancredo Neves')
+);
+
+insert into disciplina(codigo,nomeCompleto,fase, CH, CHminima, cursoCodigo, professorSiape)
+values ('ALG',' Álgebra Linear', '2', '54', NULL,
+        (select id from curso where nome = 'Engenharia de Telecomunicações'), 
+		(select id from professor where nome = 'Washington Luís')
+);
+
+insert into disciplina(codigo,nomeCompleto,fase, CH, CHminima, cursoCodigo, professorSiape)
+values ('PRG1','Programação I', '2', '200', NULL,
+        (select id from curso where nome = 'Engenharia de Telecomunicações'), 
+		(select id from professor where nome = 'Venceslau Brás')
+);
+
+# 3ª fase
+
+insert into disciplina(codigo,nomeCompleto,fase, CH, CHminima, cursoCodigo, professorSiape)
+values ('QMC2','Ciência e Tecnologia dos Materiais', '3', '36', NULL, 
+        (select id from curso where nome = 'Engenharia de Telecomunicações'), 
+        (select id from professor where nome = 'Emílio Garrastazu Médici')
+);
+
+insert into disciplina(codigo,nomeCompleto,fase, CH, CHminima, cursoCodigo, professorSiape)
+values ('CAL3','Cálculo III', '3', '72', NULL, 
+        (select id from curso where nome = 'Engenharia de Telecomunicações'), 
+        (select id from professor where nome = 'Márcio de Sousa Melo')
+);
+
+insert into disciplina(codigo,nomeCompleto,fase, CH, CHminima, cursoCodigo, professorSiape)
+values ('CIE2','Circuitos Elétrica II', '3', '72', NULL, 
+        (select id from curso where nome = 'Engenharia de Telecomunicações'), 
+        (select id from professor where nome = 'Afonso Pena')
+);
+
+insert into disciplina(codigo,nomeCompleto,fase, CH, CHminima, cursoCodigo, professorSiape)
+values ('ELA1','Eletrônica I', '3', '72', NULL, 
+        (select id from curso where nome = 'Engenharia de Telecomunicações'), 
+        (select id from professor where nome = 'Deodoro da Fonseca')
+);
+
+insert into disciplina(codigo,nomeCompleto,fase, CH, CHminima, cursoCodigo, professorSiape)
+values ('CIL',' Circuitos Lógicos', '3', '72', NULL, 
+        (select id from curso where nome = 'Engenharia de Telecomunicações'), 
+        (select id from professor where nome = 'Epitácio Pessoa')
+);
+
+insert into disciplina(codigo,nomeCompleto,fase, CH, CHminima, cursoCodigo, professorSiape)
+values ('PRG2','Programação II', '3', '72', NULL, 
+        (select id from curso where nome = 'Engenharia de Telecomunicações'), 
+        (select id from professor where nome = 'Getúlio Vargas')
+);
+
+# 4ª fase
+
+insert into disciplina(codigo,nomeCompleto,fase, CH, CHminima, cursoCodigo, professorSiape)
+values ('MEC','Mecânica dos Sólidos','4', '36', NULL,
+    (select id from curso where nome = 'Engenharia de Telecomunicações'),
+    (select id from professor where nome = 'Itamar Franco')
+);
+ 
+insert into disciplina(codigo,nomeCompleto,fase, CH, CHminima, cursoCodigo, professorSiape)
+values ('CAL4','Cálculo IV','4', '54', NULL,
+    (select id from curso where nome = 'Engenharia de Telecomunicações'),
+    (select id from professor where nome = 'Humberto Castelo Branco')
+);
+
+insert into disciplina(codigo,nomeCompleto,fase, CH, CHminima, cursoCodigo, professorSiape)
+values ('RED1','Redes de Computadores I','4', '72', NULL,
+    (select id from curso where nome = 'Engenharia de Telecomunicações'),
+    (select id from professor where nome = 'João Goulart')
+);
+
+insert into disciplina(codigo,nomeCompleto,fase, CH, CHminima, cursoCodigo, professorSiape)
+values ('ELA2','Eletrônica II','4', '72', NULL,
+    (select id from curso where nome = 'Engenharia de Telecomunicações'),
+    (select id from professor where nome = 'José Linhares')
+);
+
+insert into disciplina(codigo,nomeCompleto,fase, CH, CHminima, cursoCodigo, professorSiape)
+values ('MIC','Microprocessadores','4', '72', NULL,
+    (select id from curso where nome = 'Engenharia de Telecomunicações'),
+    (select id from professor where nome = 'Isaías de Noronha')
+);
+ 
+insert into disciplina(codigo,nomeCompleto,fase, CH, CHminima, cursoCodigo, professorSiape)
+values ('POO','Metodologia de Pesquisa','4', '72', NULL,
+    (select id from curso where nome = 'Engenharia de Telecomunicações'),
+    (select id from professor where nome = 'Hermes da Fonseca')
+);
+
+# 5ª fase
+
+insert into disciplina(codigo,nomeCompleto,fase, CH, CHminima, cursoCodigo, professorSiape)
+values ('MPQ','Programação Orientada a Objetos','5', '36', NULL,
+    (select id from curso where nome = 'Engenharia de Telecomunicações'),
+    (select id from professor where nome = 'Dilma Rousseff')
+);
+
+insert into disciplina(codigo,nomeCompleto,fase, CH, CHminima, cursoCodigo, professorSiape)
+values ('EST',' Estatística e Probabilidade','5', '54', NULL,
+    (select id from curso where nome = 'Engenharia de Telecomunicações'),
+    (select id from professor where nome = 'Deodoro da Fonseca')
+);
+
+
+insert into disciplina(codigo,nomeCompleto,fase, CH, CHminima, cursoCodigo, professorSiape)
+values ('RED2','Redes de Computadores II','5', '72', NULL,
+    (select id from curso where nome = 'Engenharia de Telecomunicações'),
+    (select id from professor where nome = 'Getúlio Vargas')
+);
+
+insert into disciplina(codigo,nomeCompleto,fase, CH, CHminima, cursoCodigo, professorSiape)
+values ('FSC3','Física III','5', '90', NULL,
+    (select id from curso where nome = 'Engenharia de Telecomunicações'),
+    (select id from professor where nome = 'Humberto Luz Oliveira')
+);
+
+insert into disciplina(codigo,nomeCompleto,fase, CH, CHminima, cursoCodigo, professorSiape)
+values ('SOP',' Sistemas Operacionais','5', '72', NULL,
+    (select id from curso where nome = 'Engenharia de Telecomunicações'),
+    (select id from professor where nome = 'José Sarney')
+);
+
+insert into disciplina(codigo,nomeCompleto,fase, CH, CHminima, cursoCodigo, professorSiape)
+values ('SIS1',' Sinais e Sistemas I','5', '72', NULL,
+    (select id from curso where nome = 'Engenharia de Telecomunicações'),
+    (select id from professor where nome = 'Jânio Quadros')
+);
+
+# 6ª fase
+
+insert into disciplina(codigo,nomeCompleto,fase, CH, CHminima, cursoCodigo, professorSiape)
+values ('FEN','Fenômenos de Transporte', '6', '36', NULL, 
+        (select id from curso where nome = 'Engenharia de Telecomunicações'), 
+        (select id from professor where nome = 'Michel Temer')
+);
+
+insert into disciplina(codigo,nomeCompleto,fase, CH, CHminima, cursoCodigo, professorSiape)
+values ('PRE','Processos Estocásticos', '6', '54', NULL, 
+        (select id from curso where nome = 'Engenharia de Telecomunicações'), 
+        (select id from professor where nome = 'Júlio Prestes')
+);
+
+insert into disciplina(codigo,nomeCompleto,fase, CH, CHminima, cursoCodigo, professorSiape)
+values ('ANT','Antenas e Propagação', '6', '72', NULL, 
+        (select id from curso where nome = 'Engenharia de Telecomunicações'), 
+        (select id from professor where nome = 'Nereu Ramos')
+);
+
+insert into disciplina(codigo,nomeCompleto,fase, CH, CHminima, cursoCodigo, professorSiape)
+values ('STD','Sistemas Distribuídos', '6', '54', NULL, 
+        (select id from curso where nome = 'Engenharia de Telecomunicações'), 
+        (select id from professor where nome = 'Márcio de Sousa Melo')
+);
+
+insert into disciplina(codigo,nomeCompleto,fase, CH, CHminima, cursoCodigo, professorSiape)
+values ('DLP1',' Dispositivos Lógicos Programáveis I', '6', '90', NULL, 
+        (select id from curso where nome = 'Engenharia de Telecomunicações'), 
+        (select id from professor where nome = 'Nilo Peçanha')
+);
+
+insert into disciplina(codigo,nomeCompleto,fase, CH, CHminima, cursoCodigo, professorSiape)
+values ('SIS2','Sinais e Sistemas II', '6', '54', NULL, 
+        (select id from curso where nome = 'Engenharia de Telecomunicações'), 
+        (select id from professor where nome = 'Juscelino Kubitschek')
+);
+
+insert into disciplina(codigo,nomeCompleto,fase, CH, CHminima, cursoCodigo, professorSiape)
+values ('PJI2',' Projeto Integrador II', '6', '36', NULL, 
+        (select id from curso where nome = 'Engenharia de Telecomunicações'), 
+        (select id from professor where nome = 'Washington Luís')
+);
+
+# 7ª fase
+
+insert into disciplina(codigo,nomeCompleto,fase, CH, CHminima, cursoCodigo, professorSiape)
+values ('PTG','Comunicação e Expressão', '7', '36', '1980',
+        (select id from curso where nome = 'Engenharia de Telecomunicações'), 
+        (select id from professor where nome = 'José Sarney')
+);
+ 
+ 
+insert into disciplina(codigo,nomeCompleto,fase, CH, CHminima, cursoCodigo, professorSiape)
+values ('RTX','Redes De Transmissão', '7', '72', NULL,
+        (select id from curso where nome = 'Engenharia de Telecomunicações'), 
+        (select id from professor where nome = 'Luiz Inácio Lula da Silva')
+);
+ 
+ 
+insert into disciplina(codigo,nomeCompleto,fase, CH, CHminima, cursoCodigo, professorSiape)
+values ('MTG',' Meios De Transmissão Guiados', '7', '72', NULL,
+        (select id from curso where nome = 'Engenharia de Telecomunicações'), 
+        (select id from professor where nome = 'Michel Temer')
+);
+ 
+ 
+insert into disciplina(codigo,nomeCompleto,fase, CH, CHminima, cursoCodigo, professorSiape)
+values ('DLP2','Dispositivos Lógicos Programáveis II', '7', '54', NULL,
+        (select id from curso where nome = 'Engenharia de Telecomunicações'), 
+        (select id from professor where nome = 'Nilo Peçanha')
+);
+ 
+ 
+insert into disciplina(codigo,nomeCompleto,fase, CH, CHminima, cursoCodigo, professorSiape)
+values ('PSD','Processamentos De Sinais Digitais', '7', '72', NULL,
+        (select id from curso where nome = 'Engenharia de Telecomunicações'), 
+        (select id from professor where nome = 'Venceslau Brás')
+);
+ 
+ 
+insert into disciplina(codigo,nomeCompleto,fase, CH, CHminima, cursoCodigo, professorSiape)
+values ('COM1','Sistemas De comunicações I', '7', '90', NULL,
+        (select id from curso where nome = 'Engenharia de Telecomunicações'), 
+        (select id from professor where nome = 'José Sarney')
+);
+ 
+# 8ª fase
+
+insert into disciplina(codigo,nomeCompleto,fase, CH, CHminima, cursoCodigo, professorSiape)
+values ('ADM','Administração para Engenharia', '8', '36', '1980', 
+        (select id from curso where nome = 'Engenharia de Telecomunicações'), 
+        (select id from professor where nome = 'Tancredo Neves')
+);
+
+insert into disciplina(codigo,nomeCompleto,fase, CH, CHminima, cursoCodigo, professorSiape)
+values ('CSF','Comunicações Sem Fio', '8', '72', NULL, 
+        (select id from curso where nome = 'Engenharia de Telecomunicações'), 
+        (select id from professor where nome = 'Júlio Prestes')
+);
+
+insert into disciplina(codigo,nomeCompleto,fase, CH, CHminima, cursoCodigo, professorSiape)
+values ('BCD','Banco de Dados', '8', '54', NULL, 
+        (select id from curso where nome = 'Engenharia de Telecomunicações'), 
+        (select id from professor where nome = 'Nereu Ramos')
+);
+
+insert into disciplina(codigo,nomeCompleto,fase, CH, CHminima, cursoCodigo, professorSiape)
+values ('STE','Sistemas Embarcados', '8', '72', NULL, 
+        (select id from curso where nome = 'Engenharia de Telecomunicações'), 
+        (select id from professor where nome = 'Itamar Franco')
+);
+
+insert into disciplina(codigo,nomeCompleto,fase, CH, CHminima, cursoCodigo, professorSiape)
+values ('PTC','Projeto de Protocolos', '8', '54', NULL, 
+        (select id from curso where nome = 'Engenharia de Telecomunicações'), 
+        (select id from professor where nome = 'Jânio Quadros')
+);
+
+insert into disciplina(codigo,nomeCompleto,fase, CH, CHminima, cursoCodigo, professorSiape)
+values ('COM2','Sistemas de Comunicação II', '8', '72', NULL, 
+        (select id from curso where nome = 'Engenharia de Telecomunicações'), 
+        (select id from professor where nome = 'Emílio Garrastazu Médici')
+);
+
+insert into disciplina(codigo,nomeCompleto,fase, CH, CHminima, cursoCodigo, professorSiape)
+values ('PJI3','Projeto Integrador III', '8', '36', NULL, 
+        (select id from curso where nome = 'Engenharia de Telecomunicações'), 
+        (select id from professor where nome = 'Fernando Collor')
+);
+
+# 9ª fase
+
+insert into disciplina(codigo,nomeCompleto,fase, CH, CHminima, cursoCodigo, professorSiape)
+values ('ECO','Economia Para Engenharia','9', '36', '1980',
+    (select id from curso where nome = 'Engenharia de Telecomunicações'),
+    (select id from professor where nome = 'Tancredo Neves')
+);
+
+insert into disciplina(codigo,nomeCompleto,fase, CH, CHminima, cursoCodigo, professorSiape)
+values ('SUS','Engenharia e Sustentabilidade','9', '36', NULL,
+    (select id from curso where nome = 'Engenharia de Telecomunicações'),
+    (select id from professor where nome ='Afonso Pena')
+);
+
+insert into disciplina(codigo,nomeCompleto,fase, CH, CHminima, cursoCodigo, professorSiape)
+values ('SMU','Sistemas Multimídia','9', '54', NULL,
+    (select id from curso where nome = 'Engenharia de Telecomunicações'),
+    (select id from professor where nome = 'Ernesto Geisel')
+);
+
+insert into disciplina(codigo,nomeCompleto,fase, CH, CHminima, cursoCodigo, professorSiape)
+values ('ADS','Avaliação de Desempenho de Sistemas','9', '54', NULL,
+    (select id from curso where nome = 'Engenharia de Telecomunicações'),
+    (select id from professor where nome = 'Floriano Peixoto')
+);
+
+insert into disciplina(codigo,nomeCompleto,fase, CH, CHminima, cursoCodigo, professorSiape)
+values ('STC','Sistemas de Telecomunicações','9', '72', NULL,
+    (select id from curso where nome = 'Engenharia de Telecomunicações'),
+    (select id from professor where nome = 'Artur da Costa e Silva')
+);
+
+insert into disciplina(codigo,nomeCompleto,fase, CH, CHminima, cursoCodigo, professorSiape)
+values ('CRF','Circuitos de Rádio-Frequência','9', '72', NULL,
+    (select id from curso where nome = 'Engenharia de Telecomunicações'),
+    (select id from professor where nome = 'Campos Sales')
+);
+
+insert into disciplina(codigo,nomeCompleto,fase, CH, CHminima, cursoCodigo, professorSiape)
+values ('TCC1','Trabalho de Conclusão de Curso I','9', '36', '2160',
+    (select id from curso where nome = 'Engenharia de Telecomunicações'),
+    (select id from professor where nome = 'Deodoro da Fonseca')
+);
+
+# 10ª fase
+
+insert into disciplina(codigo,nomeCompleto,fase, CH, CHminima, cursoCodigo, professorSiape)
+values ('ETO','Estágio Obrigatório', '10', '360', '2160',
+        (select id from curso where nome = 'Engenharia de Telecomunicações'), 
+        (select id from professor where nome = 'Getúlio Vargas')
+);
+ 
+insert into disciplina(codigo,nomeCompleto,fase, CH, CHminima, cursoCodigo, professorSiape)
+values ('TCC2','Trabalho De Conclusão II', '10', '108', '2560',
+        (select id from curso where nome = 'Engenharia de Telecomunicações'), 
+        (select id from professor where nome = 'Isaías de Noronha')
+);
+
+
+# Criando préRequisitos.
+# desc preRequisito;
+#--------------------------------------- FASE 2 ----------------------------------------------
+insert into preRequisito (disciplina,preRequisito)
+values (
+ (select id from disciplina where codigo = 'CAL2'),
+   (select id from disciplina where codigo = 'CAL1')
+),
+(
+ (select id from disciplina where codigo = 'CIE1'),
+   (select id from disciplina where codigo = 'CAL1')
+),
+(
+ (select id from disciplina where codigo = 'CIE1'),
+   (select id from disciplina where codigo = 'ELI1')
+),
+(
+ (select id from disciplina where codigo = 'FSC2'),
+   (select id from disciplina where codigo = 'CAL1')
+),
+(
+ (select id from disciplina where codigo = 'FSC2'),
+   (select id from disciplina where codigo = 'FSC1')
+),
+(
+ (select id from disciplina where codigo = 'ALG'),
+   (select id from disciplina where codigo = 'GAL')
+),
+(
+ (select id from disciplina where codigo = 'PRG1'),
+   (select id from disciplina where codigo = 'LOG')
+);
+
+#--------------------------------------- FASE 3 ----------------------------------------------
+insert into preRequisito (disciplina,preRequisito)
+values (
+ (select id from disciplina where codigo = 'QMC2'),
+   (select id from disciplina where codigo = 'QMC1')
+),
+(
+ (select id from disciplina where codigo = 'CAL3'),
+   (select id from disciplina where codigo = 'CAL2')
+),
+(
+ (select id from disciplina where codigo = 'CAL3'),
+   (select id from disciplina where codigo = 'GAL')
+),
+(
+ (select id from disciplina where codigo = 'CIE2'),
+   (select id from disciplina where codigo = 'CIE1')
+),
+(
+ (select id from disciplina where codigo = 'CIE2'),
+   (select id from disciplina where codigo = 'CAL2')
+),
+(
+ (select id from disciplina where codigo = 'ELA1'),
+   (select id from disciplina where codigo = 'CIE1')
+),
+(
+ (select id from disciplina where codigo = 'ELA1'),
+   (select id from disciplina where codigo = 'CAL1')
+),
+(
+ (select id from disciplina where codigo = 'CIL'),
+   (select id from disciplina where codigo = 'LOG')
+),
+(
+ (select id from disciplina where codigo = 'PRG2'),
+   (select id from disciplina where codigo = 'PRG1')
+);
+
+#--------------------------------------- FASE 4 ----------------------------------------------
+insert into preRequisito (disciplina,preRequisito)
+values (
+ (select id from disciplina where codigo = 'MEC'),
+   (select id from disciplina where codigo = 'FSC1')
+),
+(
+ (select id from disciplina where codigo = 'MEC'),
+   (select id from disciplina where codigo = 'CAL2')
+),
+(
+ (select id from disciplina where codigo = 'CAL4'),
+   (select id from disciplina where codigo = 'CAL2')
+),
+(
+ (select id from disciplina where codigo = 'RED1'),
+   (select id from disciplina where codigo = 'CIL')
+),
+(
+ (select id from disciplina where codigo = 'ELA2'),
+   (select id from disciplina where codigo = 'ELA1')
+),
+(
+ (select id from disciplina where codigo = 'ELA2'),
+   (select id from disciplina where codigo = 'CAL2')
+),
+(
+ (select id from disciplina where codigo = 'MIC'),
+   (select id from disciplina where codigo = 'CIL')
+),
+(
+ (select id from disciplina where codigo = 'POO'),
+   (select id from disciplina where codigo = 'PRG2')
+);
+
+#--------------------------------------- FASE 5 ----------------------------------------------
+insert into preRequisito (disciplina,preRequisito)
+values (
+ (select id from disciplina where codigo = 'EST'),
+   (select id from disciplina where codigo = 'CAL1')
+),
+(
+ (select id from disciplina where codigo = 'RED2'),
+   (select id from disciplina where codigo = 'RED1')
+),
+(
+ (select id from disciplina where codigo = 'FSC3'),
+   (select id from disciplina where codigo = 'FSC1')
+),
+(
+ (select id from disciplina where codigo = 'FSC3'),
+   (select id from disciplina where codigo = 'CAL3')
+),
+(
+ (select id from disciplina where codigo = 'SOP'),
+   (select id from disciplina where codigo = 'PRG2')
+),
+(
+ (select id from disciplina where codigo = 'SOP'),
+   (select id from disciplina where codigo = 'MIC')
+),
+(
+ (select id from disciplina where codigo = 'SIS1'),
+   (select id from disciplina where codigo = 'CAL4')
+),
+(
+ (select id from disciplina where codigo = 'SIS1'),
+   (select id from disciplina where codigo = 'ALG')
+),
+(
+ (select id from disciplina where codigo = 'SIS1'),
+   (select id from disciplina where codigo = 'CIE2')
+);
+
+#--------------------------------------- FASE 6 ----------------------------------------------
+insert into preRequisito (disciplina,preRequisito)
+values (
+ (select id from disciplina where codigo = 'FEN'),
+   (select id from disciplina where codigo = 'FSC2')
+),
+(
+ (select id from disciplina where codigo = 'PRE'),
+   (select id from disciplina where codigo = 'EST')
+),
+(
+ (select id from disciplina where codigo = 'PRE'),
+   (select id from disciplina where codigo = 'CAL4')
+),
+(
+ (select id from disciplina where codigo = 'ANT'),
+   (select id from disciplina where codigo = 'FSC3')
+),
+(
+ (select id from disciplina where codigo = 'STD'),
+   (select id from disciplina where codigo = 'RED1')
+),
+(
+ (select id from disciplina where codigo = 'STD'),
+   (select id from disciplina where codigo = 'SOP')
+),
+(
+ (select id from disciplina where codigo = 'STD'),
+   (select id from disciplina where codigo = 'POO')
+),
+(
+ (select id from disciplina where codigo = 'DLP1'),
+   (select id from disciplina where codigo = 'CIL')
+),
+(
+ (select id from disciplina where codigo = 'SIS2'),
+   (select id from disciplina where codigo = 'SIS1')
+),
+(
+ (select id from disciplina where codigo = 'PJI2'),
+   (select id from disciplina where codigo = 'PJI1')
+),
+(
+ (select id from disciplina where codigo = 'PJI2'),
+   (select id from disciplina where codigo = 'RED2')
+),
+(
+ (select id from disciplina where codigo = 'PJI2'),
+   (select id from disciplina where codigo = 'MIC')
+),
+(
+ (select id from disciplina where codigo = 'PJI2'),
+   (select id from disciplina where codigo = 'STD')
+);
+
+#--------------------------------------- FASE 7 ----------------------------------------------
+insert into preRequisito (disciplina,preRequisito)
+values (
+ (select id from disciplina where codigo = 'RTX'),
+   (select id from disciplina where codigo = 'RED1')
+),
+(
+ (select id from disciplina where codigo = 'RTX'),
+   (select id from disciplina where codigo = 'SIS2')
+),
+(
+ (select id from disciplina where codigo = 'MTG'),
+   (select id from disciplina where codigo = 'FSC3')
+),
+(
+ (select id from disciplina where codigo = 'MTG'),
+   (select id from disciplina where codigo = 'SIS2')
+),
+(
+ (select id from disciplina where codigo = 'DLP2'),
+   (select id from disciplina where codigo = 'DLP1')
+),
+(
+ (select id from disciplina where codigo = 'DLP2'),
+   (select id from disciplina where codigo = 'MIC')
+),
+(
+ (select id from disciplina where codigo = 'PSD'),
+   (select id from disciplina where codigo = 'SIS2')
+),
+(
+ (select id from disciplina where codigo = 'PSD'),
+   (select id from disciplina where codigo = 'DLP1')
+),
+(
+ (select id from disciplina where codigo = 'COM1'),
+   (select id from disciplina where codigo = 'SIS2')
+),
+(
+ (select id from disciplina where codigo = 'COM'),
+   (select id from disciplina where codigo = 'PRE')
+);
+
+#--------------------------------------- FASE 8 ----------------------------------------------
+insert into preRequisito (disciplina,preRequisito)
+values (
+ (select id from disciplina where codigo = 'CSF'),
+   (select id from disciplina where codigo = 'ANT')
+),
+(
+ (select id from disciplina where codigo = 'CSF'),
+   (select id from disciplina where codigo = 'PRE')
+),
+(
+ (select id from disciplina where codigo = 'BCD'),
+   (select id from disciplina where codigo = 'POO')
+),
+(
+ (select id from disciplina where codigo = 'STE'),
+   (select id from disciplina where codigo = 'SOP')
+),
+(
+ (select id from disciplina where codigo = 'PTC'),
+   (select id from disciplina where codigo = 'PRG2')
+),
+(
+ (select id from disciplina where codigo = 'PTC'),
+   (select id from disciplina where codigo = 'RED2')
+),
+(
+ (select id from disciplina where codigo = 'COM2'),
+   (select id from disciplina where codigo = 'COM1')
+),
+(
+ (select id from disciplina where codigo = 'PJI3'),
+   (select id from disciplina where codigo = 'PJI2')
+),
+(
+ (select id from disciplina where codigo = 'PJI3'),
+   (select id from disciplina where codigo = 'PSD')
+),
+(
+ (select id from disciplina where codigo = 'PJI3'),
+   (select id from disciplina where codigo = 'COM1')
+),
+(
+ (select id from disciplina where codigo = 'PJI3'),
+   (select id from disciplina where codigo = 'STE')
+),
+(
+ (select id from disciplina where codigo = 'PJI3'),
+   (select id from disciplina where codigo = 'DLP2')
+);
+
+
+#--------------------------------------- FASE 9 ----------------------------------------------
+insert into preRequisito (disciplina,preRequisito)
+values (
+ (select id from disciplina where codigo = 'SMU'),
+   (select id from disciplina where codigo = 'RED2')
+),
+(
+ (select id from disciplina where codigo = 'ADS'),
+   (select id from disciplina where codigo = 'PTC')
+),
+(
+ (select id from disciplina where codigo = 'ADS'),
+   (select id from disciplina where codigo = 'PRE')
+),
+(
+ (select id from disciplina where codigo = 'STC'),
+   (select id from disciplina where codigo = 'COM1')
+),
+(
+ (select id from disciplina where codigo = 'STC'),
+   (select id from disciplina where codigo = 'RTX')
+),
+(
+ (select id from disciplina where codigo = 'CRF'),
+   (select id from disciplina where codigo = 'COM1')
+),
+(
+ (select id from disciplina where codigo = 'CRF'),
+   (select id from disciplina where codigo = 'DLP1')
+),
+(
+ (select id from disciplina where codigo = 'CRF'),
+   (select id from disciplina where codigo = 'ANT')
+);
+
+#--------------------------------------- FASE 10 ----------------------------------------------
+insert into preRequisito (disciplina,preRequisito)
+values (
+ (select id from disciplina where codigo = 'TCC2'),
+   (select id from disciplina where codigo = 'TCC1')
+),
+(
+ (select id from disciplina where codigo = 'TCC2'),
+   (select id from disciplina where codigo = 'PJI3')
+);
+
+
+# Cadastrando horários das disciplinas:
+
+# Convenção do horário.
+# Turno    0-> Matutino    | 1->Vespertino    | 2->Noturno.
+# numAula  0-> 7:30 - 9:20 | 1-> 9:40 - 11:30 | 2-> 13:30 - 16:20 | 3-> 13:30 - 16:20 | 4-> 18:30 - 20:20 | 5-> 20:40 - 22:30.
+# numDia   0-> Domingo     | 1->Segunda       | 2->Terça          | 3-> Quarta        | 4-> Quinta        | 5-> Sexta          | 6-> Sábado.
+# semanaAB 0-> A/B         | 1-> A            | 2->B
+ 
+# 1ª fase
+# Obs: Falta quinta- ferira.
+insert into horario(turno, numAula, numDia, semanaAB, codigoDisciplina, semestre)
+values ('0','0','1','0',(select id from disciplina where codigo = 'GAL'),'20161'),
+       ('0','1','1','0',(select id from disciplina where codigo = 'CAL1'),'20161'),
+ 
+       ('0','0','2','0',(select id from disciplina where codigo = 'ELI1'),'20161'),
+       ('0','1','2','1',(select id from disciplina where codigo = 'GAL'),'20161'),
+       ('0','1','2','2',(select id from disciplina where codigo = 'FSC1'),'20161'),     
+       ('1','2','2','0',(select id from disciplina where codigo = 'DES'),'20161'),
+       ('1','3','2','0',(select id from disciplina where codigo = 'DES'),'20161'),
+ 
+       ('0','0','3','0',(select id from disciplina where codigo = 'CAL1'),'20161'),
+       ('0','1','3','0',(select id from disciplina where codigo = 'PJI1'),'20161'),
+        
+       ('0','0','5','0',(select id from disciplina where codigo = 'FSC1'),'20161'),
+       ('0','1','5','0',(select id from disciplina where codigo = 'LOG'),'20161');
+
+
+# 2ª fase
+# Obs: Falta quarta-ferira e  dúvida de sexta-feira de manhã.
+insert into horario(turno, numAula, numDia, semanaAB, codigoDisciplina, semestre)
+values ('1','2','1','0',(select id from disciplina where codigo ='CAL2'),'20161'),
+       ('1','3','1','0',(select id from disciplina where codigo ='FSC2'),'20161'),
+
+       ('0','0','5','0',(select id from disciplina where codigo ='CIE1'),'20161'),
+       ('1','3','2','0',(select id from disciplina where codigo ='PRG1'),'20161'),
+
+       ('1','2','4','1',(select id from disciplina where codigo ='ALG'),'20161'),
+       ('1','2','4','2',(select id from disciplina where codigo ='FSC2'),'20161'),
+       ('1','3','4','0',(select id from disciplina where codigo ='FSC2'),'20161'),
+
+       ('0','0','5','0',(select id from disciplina where codigo ='QMC1'),'20161'),
+       ('0','0','5','0',(select id from disciplina where codigo ='QMC1'),'20161'),
+       ('1','2','5','0',(select id from disciplina where codigo ='CAL2'),'20161'),
+       ('1','3','5','0',(select id from disciplina where codigo ='ALG'),'20161');
+
+# 3ª fase
+# Obs: Falta quarta-ferira e  dúvida de sexta-feira de manhã.
+insert into horario(turno, numAula, numDia, semanaAB, codigoDisciplina, semestre)
+values ('0','0','1','0',(select id from disciplina where codigo ='ELA1'),'20161'),
+       ('0','1','1','0',(select id from disciplina where codigo ='CAL3'),'20161'),
+
+       ('0','0','2','0',(select id from disciplina where codigo ='CIL'),'20161'),
+       ('0','1','2','0',(select id from disciplina where codigo ='PRG2'),'20161'),
+
+       ('0','0','3','1',(select id from disciplina where codigo ='CIL'),'20161'),
+       ('0','1','3','2',(select id from disciplina where codigo ='ELA1'),'20161'),
+       ('1','2','3','0',(select id from disciplina where codigo ='QMC2'),'20161'),
+
+       ('0','0','4','0',(select id from disciplina where codigo ='CIE2'),'20161'),
+       ('1','1','4','0',(select id from disciplina where codigo ='CAL3'),'20161'),
+       
+       ('0','0','5','0',(select id from disciplina where codigo ='CIE2'),'20161'),
+       ('1','1','5','0',(select id from disciplina where codigo ='PRG2'),'20161');
+
+
+# 4ª fase
+# Obs: Falta quarta-ferira e  dúvida de sexta-feira de manhã.
+insert into horario(turno, numAula, numDia, semanaAB, codigoDisciplina, semestre)
+values ('1','2','1','0',(select id from disciplina where codigo ='MIC'),'20161'),
+       ('1','3','1','0',(select id from disciplina where codigo ='ELA2'),'20161'),
+
+	
+       ('0','1','2','0',(select id from disciplina where codigo ='MEC'),'20161'),
+       ('1','2','2','0',(select id from disciplina where codigo ='POO'),'20161'),
+       ('1','3','2','0',(select id from disciplina where codigo ='RED1'),'20161'),
+
+       ('1','2','3','0',(select id from disciplina where codigo ='CAL4'),'20161'),
+       ('1','3','3','0',(select id from disciplina where codigo ='ELA2'),'20161'),
+
+       ('1','2','4','0',(select id from disciplina where codigo ='POO'),'20161'),
+       ('1','3','4','0',(select id from disciplina where codigo ='MIC'),'20161'),
+       
+       ('1','2','5','0',(select id from disciplina where codigo ='CAL4'),'20161'),
+       ('1','3','5','0',(select id from disciplina where codigo ='RED1'),'20161');
+
+# 5ª fase
+insert into horario(turno, numAula, numDia, semanaAB, codigoDisciplina, semestre)
+values ('0','0','1', '0' , (select id from disciplina where codigo ='RED2'),'20161'),
+       ('0','1','1', '1' ,(select id from disciplina where codigo = 'EST' ),'20161'),
+       ('0','1','1', '2' , (select id from disciplina where codigo ='FSC3'),'20161'),
+       ('1','2','1', '0' ,(select id from disciplina where codigo = 'MPQ'),'20161'),
+
+       ('0','0','2','0',(select id from disciplina where codigo ='SIS1'),'20161'),
+       ('0','1','2','0',(select id from disciplina where codigo ='FSC3'),'20161'),
+
+       ('0','0','3','0',(select id from disciplina where codigo ='SIS1'),'20161'),
+       ('0','1','3','0',(select id from disciplina where codigo ='SOP'),'20161'),
+
+       ('0','0','4','0',(select id from disciplina where codigo ='EST'),'20161'),
+       ('0','1','4','0',(select id from disciplina where codigo ='RED2'),'20161'),
+       
+       ('0','0','5','0',(select id from disciplina where codigo ='SOP'),'20161'),
+       ('0','1','5','0',(select id from disciplina where codigo ='FSC3'),'20161');
+
+# 6ª fase                                                                                                                    nmmn nª fase
+insert into horario(turno, numAula, numDia, semanaAB, codigoDisciplina, semestre)
+values ('0','1','1', '0' , (select id from disciplina where codigo ='FEN'),'20161'),
+       ('1','2','1', '1' , (select id from disciplina where codigo ='STD') ,'20161'),
+       ('1','2','1', '2' , (select id from disciplina where codigo ='PRE'),'20161'),
+       ('1','3','1', '0' , (select id from disciplina where codigo ='DLP1') ,'20161'),
+
+       ('1','2','2','0',(select id from disciplina where codigo ='PRE'),'20161'),
+       ('1','3','2','0',(select id from disciplina where codigo ='PJI2'),'20161'),
+
+       ('1','2','3','0',(select id from disciplina where codigo ='DLP1'),'20161'),
+       ('1','3','3','0',(select id from disciplina where codigo ='SIS2'),'20161'),
+
+       ('1','1','4', '0' ,(select id from disciplina where codigo = 'SIS2'),'20161'),
+       ('1','1','4', '1' ,(select id from disciplina where codigo ='DLP1' ),'20161'),
+       ('1','1','4', '2' ,(select id from disciplina where codigo ='ANT'),'20161'),
+      
+       
+       ('1','2','5','0',(select id from disciplina where codigo ='ANT'),'20161'),
+       ('1','3','5','0',(select id from disciplina where codigo ='STD'),'20161');
+
+# 7ª fase
+insert into horario(turno, numAula, numDia, semanaAB, codigoDisciplina, semestre)
+values ('0','0','1', '0' , (select id from disciplina where codigo ='MTG'),'20161'),
+       ('0','1','1', '0' , (select id from disciplina where codigo ='COM1') ,'20161'),
+
+
+       ('0','0','2','0',(select id from disciplina where codigo ='PSD'),'20161'),
+       ('0','1','2','0',(select id from disciplina where codigo ='DLP1'),'20161'),
+
+       ('0','0','3','0',(select id from disciplina where codigo ='COM1'),'20161'),
+       ('0','1','3','0',(select id from disciplina where codigo ='RTX'),'20161'),
+
+       ('0','0','4', '0' ,(select id from disciplina where codigo ='PSD'),'20161'),
+       ('0','1','4', '1' ,(select id from disciplina where codigo = 'DLP1' ),'20161'),
+       ('0','1','1', '2' ,(select id from disciplina where codigo = 'COM1') ,'20161'),
+       
+       ('0','0','5','0',(select id from disciplina where codigo ='MTG'),'20161'),
+       ('0','1','5','2',(select id from disciplina where codigo = 'RTX'),'20161'),
+       ('1','2','5','0',(select id from disciplina where codigo ='PTG'),'20161');
+
+# 8ª fase
+insert into horario(turno, numAula, numDia, semanaAB, codigoDisciplina, semestre)
+values ('1','2','1', '0' , (select id from disciplina where codigo ='CSF'),'20161'),
+       ('1','3','1', '0' , (select id from disciplina where codigo ='PJI3') ,'20161'),
+
+       ('1','2','2','0',(select id from disciplina where codigo ='STE'),'20161'),
+       ('1','3','2','0',(select id from disciplina where codigo ='CSF'),'20161'),
+
+       ('0','1','3', '0' ,(select id from disciplina where codigo ='ADM'),'20161'),	
+       ('1','2','3','0',(select id from disciplina where codigo ='PTC'),'20161'),
+       ('1','3','3','0',(select id from disciplina where codigo ='COM2'),'20161'),
+
+       ('1','2','4', '0' ,(select id from disciplina where codigo ='COM2'),'20161'),
+       ('1','3','4', '1' ,(select id from disciplina where codigo ='PTC') ,'20161'),
+       ('1','3','4', '2' , (select id from disciplina where codigo ='BCD'),'20161'),
+       
+       ('1','2','5','0',(select id from disciplina where codigo ='BCD'),'20161'),
+       ('1','3','5','0',(select id from disciplina where codigo ='STE'),'20161');
+
+# 9ª fase
+insert into horario(turno, numAula, numDia, semanaAB, codigoDisciplina, semestre)
+values ('0','0','1', '0' ,(select id from disciplina where codigo ='ECO'),'20161'),
+       ('0','1','1', '0' ,(select id from disciplina where codigo ='ADS'),'20161'),
+
+       ('0','0','2','0',(select id from disciplina where codigo ='STC'),'20161'),
+       ('0','1','2','0',(select id from disciplina where codigo ='SUS'),'20161'),
+
+       ('0','0','3', '0' ,(select id from disciplina where codigo ='STC'),'20161'),	
+       ('0','1','3','0',(select id from disciplina where codigo ='TCC1'),'20161'),
+
+       ('0','0','4', '0' , (select id from disciplina where codigo ='SMU' ),'20161'),
+       ('0','1','4', '0' ,(select id from disciplina where codigo = 'CRF') ,'20161'),
+       
+       ('0','0','5','1',(select id from disciplina where codigo ='ADS'),'20161'),
+       ('0','0','5','2',(select id from disciplina where codigo ='SMU'),'20161'),
+       ('0','1','5','0',(select id from disciplina where codigo ='CRF'),'20161');
+
+
+# --------------------------- Senha do Aluno --------------------------------------------------#
+
+#  Acesso restrito aos alunos por meio de autenticação (matrícula/cpf + senha).
+
+# Alterando a tabela
+alter table aluno modify cpf varchar(50) not null;
+alter table aluno modify senha varchar(20) not null;
+
+# Pondo senha para todos. 
+update aluno set senha = '123456' where senha is null; 
+select * from aluno;
+
+#------------------------------ Matriculando dois alunos---------------------------------------------
+ 
+#desc matricula;
+ insert into matricula (aluno, curso, matricula)
+ values (
+	(select id from aluno where aluno.nome regexp 'Alcides Maia'),
+	(select id from curso where curso.codigo = '290'),
+    '1320026230'
+ );
+
+ insert into matricula (aluno, curso, matricula)
+ values (
+	(select id from aluno where aluno.nome regexp 'Adelino Fontoura'),
+	(select id from curso where curso.codigo = '290'),
+    '1425026230'
+ );
+
+#------------------------------ Processos de Matricula---------------------------------------------
+
+ insert into processoDeMatricula (matricula,disciplina,concluido,semestre)
+ values (
+	(select id from matricula where matricula.aluno = (select id from aluno where aluno.nome regexp 'Adelino Fontoura')),
+	(select id from disciplina where disciplina.codigo = 'DES'),
+    '2',
+    '20162'
+ );
+
+#desc processoDeMatricula;
+#select * from disciplina;
+
+ insert into processoDeMatricula (matricula,disciplina,concluido,semestre)
+ values (
+	(select id from matricula where matricula.aluno = (select id from aluno where aluno.nome regexp 'Alcides Maia')),
+	(select id from disciplina where disciplina.codigo = 'DES'),
+    '2',
+    '20162'
+ );
+
+  insert into processoDeMatricula (matricula,disciplina,concluido,semestre)
+  values (
+	(select id from matricula where matricula.aluno = (select id from aluno where aluno.nome regexp 'Alcides Maia')),
+	(select id from disciplina where disciplina.codigo = 'CAL1'),
+    '2',
+    '20162'
+ );
+
+  insert into processoDeMatricula (matricula,disciplina,concluido,semestre)
+  values (
+	(select id from matricula where matricula.aluno = (select id from aluno where aluno.nome regexp 'Alcides Maia')),
+	(select id from disciplina where disciplina.codigo = 'ELI1'),
+    '2',
+    '20162'
+ );
+
+  insert into processoDeMatricula (matricula,disciplina,concluido,semestre)
+  values (
+	(select id from matricula where matricula.aluno = (select id from aluno where aluno.nome regexp 'Alcides Maia')),
+	(select id from disciplina where disciplina.codigo = 'FSC1'),
+    '2',
+    '20162'
+ );
+
+  insert into processoDeMatricula (matricula,disciplina,concluido,semestre)
+  values (
+	(select id from matricula where matricula.aluno = (select id from aluno where aluno.nome regexp 'Alcides Maia')),
+	(select id from disciplina where disciplina.codigo = 'GAL'),
+    '2',
+    '20162'
+ );
+
+  insert into processoDeMatricula (matricula,disciplina,concluido,semestre)
+  values (
+	(select id from matricula where matricula.aluno = (select id from aluno where aluno.nome regexp 'Alcides Maia')),
+	(select id from disciplina where disciplina.codigo = 'LOG'),
+    '2',
+    '20162'
+ );
+
+  insert into processoDeMatricula (matricula,disciplina,concluido,semestre)
+  values (
+	(select id from matricula where matricula.aluno = (select id from aluno where aluno.nome regexp 'Alcides Maia')),
+	(select id from disciplina where disciplina.codigo = 'PJI1'),
+    '2',
+    '20162'
+ );
+
+ ## ------------------------- Pedido de Processo-------------------------------------------
+  insert into processoDeMatricula (matricula,disciplina,concluido,semestre)
+  values (
+	(select id from matricula where matricula.aluno = (select id from aluno where aluno.nome regexp 'Alcides Maia')),
+	(select id from disciplina where disciplina.codigo = 'QMC1'),
+    '0',
+    '20162'
+ );
+
+  insert into processoDeMatricula (matricula,disciplina,concluido,semestre)
+  values (
+	(select id from matricula where matricula.aluno = (select id from aluno where aluno.nome regexp 'Alcides Maia')),
+	(select id from disciplina where disciplina.codigo = 'CIE1'),
+    '0',
+    '20162'
+ );
+
+  insert into processoDeMatricula (matricula,disciplina,concluido,semestre)
+  values (
+	(select id from matricula where matricula.aluno = (select id from aluno where aluno.nome regexp 'Alcides Maia')),
+	(select id from disciplina where disciplina.codigo = 'PRG1'),
+    '0',
+    '20162'
+ ); 
+
+  insert into processoDeMatricula (matricula,disciplina,concluido,semestre)
+  values (
+	(select id from matricula where matricula.aluno = (select id from aluno where aluno.nome regexp 'Alcides Maia')),
+	(select id from disciplina where disciplina.codigo = 'RED1'),
+    '0',
+    '20162'
+ ); 
+ ## ------------------------- Pedido de Validação-------------------------------------------
+ insert into processoDeMatricula (matricula,disciplina,concluido,semestre)
+  values (
+	(select id from matricula where matricula.aluno = (select id from aluno where aluno.nome regexp 'Alcides Maia')),
+	(select id from disciplina where disciplina.codigo = 'QMC2'),
+    '1',
+    '20162'
+ );
+
+
+ insert into processoDeMatricula (matricula,disciplina,concluido,semestre)
+  values (
+	(select id from matricula where matricula.aluno = (select id from aluno where aluno.nome regexp 'Alcides Maia')),
+	(select id from disciplina where disciplina.codigo = 'BCD'),
+    '1',
+    '20162'
+ );
+
+select * from disciplina;
+   insert into processoDeMatricula (matricula,disciplina,concluido,semestre)
+  values (
+	(select id from matricula where matricula.aluno = (select id from aluno where aluno.nome regexp 'Alcides Maia')),
+	(select id from disciplina where disciplina.codigo = 'ALG'),
+    '1',
+    '20162'
+ );
+
+insert into processoDeMatricula (matricula,disciplina,concluido,semestre)
+  values (
+	(select id from matricula where matricula.aluno = (select id from aluno where aluno.nome regexp 'Alcides Maia')),
+	(select id from disciplina where disciplina.codigo = 'FSC2'),
+    '1',
+    '20162'
+ );
+
+insert into processoDeMatricula (matricula,disciplina,concluido,semestre)
+  values (
+	(select id from matricula where matricula.aluno = (select id from aluno where aluno.nome regexp 'Adelino Fontoura')),
+	(select id from disciplina where disciplina.codigo = 'PRG1'),
+    '1',
+    '20162'
+ );

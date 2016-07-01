@@ -1,0 +1,339 @@
+use db1220018384;
+#-----------------Cria Tabela disAluno para retornar as disciplinas  de todos alunos -----------------
+
+select * from processoDeMatricula;
+select * from aluno;
+select * from matricula;
+drop view disAlunos;
+create view disAlunos as
+    select 
+        aluno.nome,
+        disciplina.codigo,
+        disciplina.id,
+        processoDeMatricula.concluido,
+        disciplina.CH
+    from
+        disciplina
+            inner join
+        processoDeMatricula ON disciplina.id = processoDeMatricula.disciplina
+            inner join
+        matricula ON matricula.id = processoDeMatricula.matricula
+            inner join
+        aluno ON aluno.id = matricula.aluno;
+
+select * from disAlunos;
+
+#-----------------Cria Tabela concluidas para retornar as disciplinas já concluída do aluno específico -----------------
+
+select  codigo, id, CH from disAlunos where concluido = '2' and nome = 'Alcides Maia';
+
+select * from preRequisito;
+
+drop view concluidas;
+create view concluidas as
+    select  codigo, id, CH from  disAlunos
+    where   concluido = '2' and nome = 'Alcides Maia';
+
+select *  from concluidas;
+
+#-----------------Cria Tabela impo_pre para retornar as disciplinas que são impossivel por causa de preRequisito -----------------
+
+drop view impo_pre;
+create view impo_pre as
+    select 
+        preRequisito.disciplina, disciplina.codigo
+    from
+        preRequisito
+            left outer join
+        concluidas ON preRequisito.preRequisito = concluidas.id
+            inner join
+        disciplina ON disciplina.id = preRequisito.disciplina
+    where
+        concluidas.id is null
+    group by preRequisito.disciplina
+    order by disciplina;
+
+select * from impo_pre;
+
+#-----------------Cria Tabela com todas as disciplina, onde id é null é que o aluno não cursou---------------------
+
+ select disciplina.codigo, concluidas.id from concluidas right outer join disciplina ON disciplina.id = concluidas.id;
+
+drop view todasDis;
+create view todasDis as
+    select 
+        disciplina.codigo, concluidas.id
+    from
+        concluidas
+            right outer join
+        disciplina ON disciplina.id = concluidas.id;
+
+select * from todasDis;
+
+#-----------------Cria Tabela com todas as disciplina que não foram cursadas--------------------
+
+select codigo from  todasDis where todasDis.id is NULL;
+
+drop view discNaoCursadas;
+create view discNaoCursadas as
+    select 
+        codigo
+    from
+        todasDis
+    where
+        todasDis.id is NULL;
+
+select  * from  discNaoCursadas;
+
+drop view idDisNCursadas;
+create view idDisNCursadas as
+    select 
+        disciplina.codigo, disciplina.id, disciplina.CHminima
+    from
+        disciplina
+            inner join
+        discNaoCursadas ON disciplina.codigo = discNaoCursadas.codigo;
+
+select * from idDisNCursadas;
+
+#-----------------Cria Tabela impo_pre para retornar as disciplinas que são impossivel por causa de CHmímima -----------------
+
+select  id, codigo from  idDisNCursadas where idDisNCursadas.CHminima >= (select sum(CH) from concluidas);
+
+drop view impo_ch;
+create view impo_ch as
+    select 
+        id, codigo
+    from
+        idDisNCursadas
+    where
+        idDisNCursadas.CHminima >= (select 
+                sum(CH)
+            from
+                concluidas);
+select * from impo_ch;
+
+#-----------------Cria Tabela imposivel para retornar as disciplinas que são impossivel ------------- -----------------
+
+drop view impossivel;
+create view impossivel as 
+	select * from impo_ch 
+	union all
+	select * from impo_pre group by codigo  order by id;
+select * from impossivel;
+
+# Retiarar elementos duplicados.
+drop view new_imp;
+create view new_imp as
+    select 
+        *
+    from
+        impossivel
+    group by impossivel.id;
+  
+select * from new_imp;
+
+#-----------------Cria Tabela elegiveis que retornar as disciplinas que são possivel---------------------
+
+select * from idDisNCursadas order by idDisNCursadas.id;
+
+drop view elegiveis;
+create view elegiveis as
+    select 
+        idDisNCursadas.id as disciplina, disciplina.codigo
+    from
+        idDisNCursadas
+            left outer join
+        new_imp ON idDisNCursadas.id = new_imp.id 
+			inner join 
+		disciplina on disciplina.id = idDisNCursadas.id 
+		where new_imp.id is null order by idDisNCursadas.id;
+
+select  * from  elegiveis;
+
+#--------------------------- Pedido de validação de disciplina-------------------------------------------------
+
+#----------------------------- Tabela pedido de validação-----------------------------------------------------
+
+drop view pedidoValidacao;
+create view pedidoValidacao as
+    select  codigo as nomeDisciplina,id, CH from  disAlunos
+    where   concluido = '1' and nome = 'Alcides Maia';
+
+select *  from pedidoValidacao;
+
+
+
+drop view disciplinasValidas;
+create view disciplinasValidas as
+    select 
+        pedidoValidacao.nomeDisciplina, pedidoValidacao.id
+    from
+        pedidoValidacao
+           left outer join
+        elegiveis ON pedidoValidacao.id = elegiveis.disciplina 
+		where elegiveis.disciplina is not null;
+
+select  * from  disciplinasValidas;
+
+
+
+#---------------------------Pedido de matrícula de disciplina-------------------------------------------
+
+#Atendimento de pré-requisitos e Carga Horária.
+drop view disciplinaDesejadas;
+create view disciplinaDesejadas as
+    select  codigo as nomeDisciplina,id, CH from  disAlunos
+    where   concluido = '0' and nome = 'Alcides Maia';
+select  * from  disciplinaDesejadas;
+
+drop view disciplinaDesejadasPossiveis;
+create view disciplinaDesejadasPossiveis as
+    select 
+        disciplinaDesejadas.nomeDisciplina, disciplinaDesejadas.id,disciplinaDesejadas.CH
+    from
+        disciplinaDesejadas
+           left outer join
+        elegiveis ON disciplinaDesejadas.id = elegiveis.disciplina 
+		where elegiveis.disciplina is  not null;
+select  * from  disciplinaDesejadasPossiveis;
+
+# Por pré-requisito.
+
+drop view disciplinaDesejadasPossiveisPreReq;
+create view disciplinaDesejadasPossiveisPreReq as
+    select 
+        disciplinaDesejadas.nomeDisciplina, disciplinaDesejadas.id,disciplinaDesejadas.CH
+    from
+        disciplinaDesejadas
+           left outer join
+        impo_pre ON disciplinaDesejadas.id = impo_pre.disciplina 
+		where impo_pre.disciplina is   null;
+
+select  * from  disciplinaDesejadasPossiveisPreReq;
+
+#-----------------Cria tabela filtros por professor------------------------------------------------------------------
+
+select  * from professor;
+select  * from disciplina;
+
+select codigo from disciplina where professorSiape = (select id from professor where nome = 'Afonso Pena');# Só para auxiliar.
+
+drop view ListaProfessor;
+create view ListaProfessor as select id,professorSiape from disciplina where professorSiape = (select id from professor where nome = 'Afonso Pena');
+select * from ListaProfessor;
+
+drop view FiltroProfessor;        
+create view FiltroProfessor as 
+select  disciplina.codigo,professor.nome
+from ListaProfessor
+inner join disciplina
+	on ListaProfessor.id = disciplina.id
+inner join professor
+	on ListaProfessor.professorSiape = professor.id;
+
+select * from FiltroProfessor;
+
+#-----------------Cria tabela filtros por turno------------------------------------------------------------------
+
+select  * from horario;
+select  * from  disciplina;
+
+select codigoDisciplina from horario where turno = 1;# Só para auxiliar.
+drop view ListaTurno;
+create view ListaTurno as select  codigoDisciplina, turno from horario where turno = 0;
+select * from ListaTurno;
+
+drop view FiltroTurno;       
+create view FiltroTurno as 
+select  disciplina.codigo, horario.turno
+from ListaTurno
+inner join disciplina
+	on ListaTurno.codigoDisciplina = disciplina.id
+inner join horario
+	on ListaTurno.turno = horario.turno;
+;
+select * from FiltroTurno;
+
+#-----------------Cria tabela filtros por DiaHora------------------------------------------------------------------
+
+#Por horário (dia e hora).
+# Horário
+# Convenção do horário.
+# Turno    0-> Matutino    | 1->Vespertino    | 2->Noturno.
+# numAula  0-> 7:30 - 9:20 | 1-> 9:40 - 11:30 | 2-> 13:30 - 16:20 | 3-> 13:30 - 16:20 | 4-> 18:30 - 20:20 | 5-> 20:40 - 22:30.
+# numDia   0-> Domingo     | 1->Segunda       | 2->Terça          | 3-> Quarta        | 4-> Quinta        | 5-> Sexta          | 6-> Sábado.
+# semanaAB 0-> A/B         | 1-> A            | 2->B
+select  * from horario;
+select codigoDisciplina from horario where numDia = 1 and numAula = 0;# Só para auxiliar.
+drop view ListaDiaHora;
+create view ListaDiaHora as select codigoDisciplina , numDia, numAula horario from horario where numDia = 1 and numAula = 0;
+select * from ListaDiaHora;
+
+drop view FiltroDiaHora;       
+create view FiltroDiaHora as 
+select  disciplina.codigo
+from ListaDiaHora
+inner join disciplina
+	on ListaDiaHora.codigoDisciplina = disciplina.id;
+select * from FiltroDiaHora;
+
+#-------------------------Quantidade mínima e máxima de horas por semestre.-----------------------------
+select  * from  disciplinaDesejadasPossiveis;
+
+drop view TabelaCHMaxMin;
+create view TabelaCHMaxMin as
+SELECT disciplinaDesejadasPossiveis.nomeDisciplina,disciplinaDesejadasPossiveis.id as ident 
+FROM disciplinaDesejadasPossiveis
+WHERE (select sum(CH) from disciplinaDesejadasPossiveis) BETWEEN 216 AND 612;
+select sum(CH) from disciplinaDesejadasPossiveis;
+select  * from  TabelaCHMaxMin;
+
+#-----------------Choque de horário--------------------------------
+# Ver se a CH de todas as disciplinas que vou fazer está dentro da CH permitida.
+
+select * from disciplinaDesejadasPossiveis; 
+drop view disPermiMinMax;
+create view disPermiMinMax as 
+	select 
+		disciplinaDesejadasPossiveis.nomeDisciplina AS disciplinas ,disciplinaDesejadasPossiveis.id as disId
+	from 
+		disciplinaDesejadasPossiveis
+	where (select sum(CH) from disciplinaDesejadasPossiveis) BETWEEN 216 AND 612;
+
+select * from disPermiMinMax;
+
+drop view maxMinHora;
+create view maxMinHora as
+	select  disPermiMinMax.disciplinas as dis, disPermiMinMax.disId, horario.turno, horario.numAula, horario.numDia, horario.semanaAB
+	from 
+		disPermiMinMax
+			inner join 
+		horario on disPermiMinMax.disId = horario.codigoDisciplina;
+select * from maxMinHora;
+ select * from horario;
+select * from horario;
+
+# -----------------------------------choque de horário---------------------------------------
+drop view dis_e_hora;
+create view dis_e_hora as 
+	select disPermiMinMax.disciplinas as Disciplinas , disPermiMinMax.disId as id, horario.turno as turnoHorario, horario.numAula as Horario, horario.numDia as diaSemana, horario.semanaAB as SemanaAouB
+	from 
+		disPermiMinMax 
+			inner join
+		horario on disPermiMinMax.disId = horario.codigoDisciplina;
+select * from dis_e_hora;
+
+drop view choqueHora;
+create view choqueHora as 
+	select dis_e_hora.Disciplinas as DiscComChoque, dis_e_hora.id 
+	from 
+		dis_e_hora 
+			left outer join 
+		maxMinHora on dis_e_hora.SemanaAouB = maxMinHora.semanaAB and
+				   dis_e_hora.diaSemana = maxMinHora.numDia   and
+				   dis_e_hora.Horario = maxMinHora.numAula and 
+				   dis_e_hora.id !=  maxMinHora.disId
+		where maxMinHora.disId is not null;
+		
+select * from choqueHora;
